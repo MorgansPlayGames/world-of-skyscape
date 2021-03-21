@@ -1,5 +1,4 @@
 module.exports = {
-    User: require('./User'),
-    Guildie: require('./Guildie'),
-    UserAuditLog: require('./UserAuditLog'),
+    Monster: require('./Monster'),
+    DropTable: require('./DropTable'),
 };
