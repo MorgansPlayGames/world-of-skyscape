@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../utils/context';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../utils/context";
 
 export default function Navbar(props) {
   const { auth } = useAuth();
   console.log(props.logBool);
   const [state, setState] = useState({
-    burgerMenu: '',
-    navMenu: 'hidden',
+    burgerMenu: "",
+    navMenu: "hidden",
   });
 
   const hamburger = () => {
     console.log(state);
-    if (state.navMenu === 'hidden') {
+    if (state.navMenu === "hidden") {
       setState({
-        navMenu: '',
-        burgerMenu: 'hidden',
+        navMenu: "",
+        burgerMenu: "hidden",
       });
-    } else if (state.burgerMenu === 'hidden') {
+    } else if (state.burgerMenu === "hidden") {
       setState({
-        navMenu: 'hidden',
-        burgerMenu: '',
+        navMenu: "hidden",
+        burgerMenu: "",
       });
     }
   };
@@ -184,13 +184,29 @@ export default function Navbar(props) {
                   </Link>
                 </p>
               </div>
-              <div className="text-xl font-thin">
-                <div className="flex">
-                  <Link to="/account" className="p-1 mx-3">
-                    Account
-                  </Link>
+              {!auth ? (
+                <></>
+              ) : (
+                <div className="text-xl font-thin">
+                  <div className="flex">
+                    <Link to="/account" className="p-1 mx-3">
+                      Account
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              )}
+              {!auth ? (
+                <></>
+              ) : (
+                <div className="text-xl font-thin">
+                  <div className="flex">
+                    <Link to="/guild" className="p-1 mx-3">
+                      Guild
+                    </Link>
+                  </div>
+                </div>
+              )}
+
               {!auth ? (
                 <div className="text-xl font-light text-white">
                   <div className="flex bg-buttonColor rounded-xl shadow-xl mx-2">

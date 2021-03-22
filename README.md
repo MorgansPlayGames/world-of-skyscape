@@ -49,6 +49,7 @@ Have the user with login
 ### Creating the resource management game
 * create guild inventory, max character limit, raid events, 
 * happiness management/character burnout mechanics(Host RP/Guild team fun to keep people happy, less happy is less efficient playing), 
+* Chat page to see character "thoughts" and easter eggs to MMO culture
 
 
 ### Creating the incremental
@@ -58,3 +59,12 @@ Have the user with login
 * Achievements
 * Guild creation automation
 * Bring your favorite Guildie along?
+
+### Creating the MMO
+* Characters can interact with characters and invite randos to groups
+* Social vs Toxic stats?
+* Guild Wars
+* Raids with randos in queue
+* Auction house/economy to make it easier for others to make progress without wasting time on farming improve DPS for faster leveling.
+* Pvp battleground simulation?!
+* Group pvp strategies and priority/rotation implementation
