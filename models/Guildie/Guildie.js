@@ -12,7 +12,7 @@ const guildieSchema = new Schema({
   race: {
     type: String,
     trim: true,
-    required: "Last Name is Required",
+    default: "Human",
   },
 
   location: {},
@@ -22,29 +22,33 @@ const guildieSchema = new Schema({
     default: Date.now,
   },
 
-  experience: { 
-      type: Number 
-    },
-  talents: { type: String },
-  gold: { 
-      type: Number,
-      default: 0,
-      min: 0,
-     },
-  currentHP: { type: Number },
-  currentMP: { type: Number },
-  currentRage: { 
-      type: Number,
-      min: 0,
-     },
-  currentfocus: { 
-      type: Number,
-      min: 0,
-    },
-  currentCP: { 
-      type: Number,
-      min: 0,
-    },
+  experience: {
+    type: Number,
+    default: 0,
+  },
+  talents: { type: String, default: "" },
+  gold: {
+    type: Number,
+    default: 0,
+    min: 0,
+  },
+  currentHP: { type: Number, default: 10 },
+  currentMP: { type: Number, default: 10 },
+  currentRage: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+  currentfocus: {
+    type: Number,
+    min: 0,
+    default: 100,
+  },
+  currentCP: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
   buffs: [
     {
       type: Schema.Types.ObjectId,
@@ -59,7 +63,7 @@ const guildieSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Profession",
   },
-  fishing: { type: Number },
+  fishing: { type: Number, default: 1 },
   cooking: {
     type: Schema.Types.ObjectId,
     ref: "Profession",
@@ -85,7 +89,7 @@ const guildieSchema = new Schema({
     ref: "Equipment",
   },
 
-  statChoice: { type: Number },
+  statChoice: { type: Number, default: 0 },
 });
 
 const Guildie = mongoose.model("Guildie", guildieSchema);
