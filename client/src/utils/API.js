@@ -80,6 +80,15 @@ async function getUser(){
   }).catch((err)=>console.log(err))
 };
 
+async function createGuildie(guildie){
+  return axios({
+    method: 'post',
+    url: '/guildie/add',
+    data: guildie,
+  }).then((res)=>{return res.data})
+  .catch((err)=>{return err})
+}
+
 export const API = {
   setDefaults,
   setAuth,
@@ -89,4 +98,5 @@ export const API = {
   login,
   updateUser,
   getUser,
+  createGuildie,
 };
