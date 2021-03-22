@@ -7,8 +7,11 @@ module.exports = {
     addGuildie: async function (req, res) {
         try {
             const guildie = req.body.guildieName;
-            const newGuildie = await db.Guildie.create({ guildie: guildie });
-            const userId = req.body.userId;
+            console.log(req.body)
+            const userId = req.body._id;
+            const newGuildie = await db.Guildie.create({ name: guildie });
+            console.log(newGuildie)
+            
             const addGuildie = await db.User.updateOne(
                 { _id: ObjectID(userId) },
                 {
