@@ -32,13 +32,6 @@ const UserSchema = new Schema({
         match: [/.+@.+\..+/, 'Please enter a valid e-mail address'],
     },
 
-    guildies: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Guildie',
-        },
-    ],
-
     creationDate: {
         type: Date,
         default: Date.now,

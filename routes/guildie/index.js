@@ -6,6 +6,6 @@ router.post('/add', GUILDIE.addGuildie);
 
 router.post('/remove', GUILDIE.removeGuildie);
 
-router.get('/getall', checkAuth, GUILDIE.getAllGuildies);
+router.post('/getall', GUILDIE.getAllGuildies);
 
 module.exports = router;
