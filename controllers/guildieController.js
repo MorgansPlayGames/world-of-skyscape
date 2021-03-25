@@ -6,13 +6,11 @@ module.exports = {
   addGuildie: async function (req, res) {
     try {
       const guildie = req.body.guildieName;
-      console.log(req.body);
       const userId = req.body._id;
       const newGuildie = await db.Guildie.create({
         name: guildie,
         userId: userId,
       });
-      console.log(newGuildie);
 
       const addGuildie = await db.User.updateOne(
         { _id: ObjectID(userId) },
@@ -54,19 +52,8 @@ module.exports = {
   },
   getAllGuildies: async function (req, res) {
     try {
-        console.log("got here")
-        console.log(req.body);
       let userId = req.body._id;
-      console.log("got here")
-      
       const guildies = await db.Guildie.find({ userId: ObjectID(userId) });
-      // const guildiesNew = guildies.map((item) => {
-      //     return {
-      //         value: item._id,
-      //         label: item.tag,
-      //     };
-      // });
-      // console.log(tagsNew);
       res.status(200).json(guildies);
     } catch (err) {
       res.status(500).json(err);

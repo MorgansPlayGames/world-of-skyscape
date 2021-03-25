@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import { Navigation } from "react-minimal-side-navigation";
 import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
 
-function GuildieSidebar(props) {
+function GuildiesSidebar(props) {
   const [guildNavbar, setGuildNavbar] = useState([])
+  console.log("gprops:", props.guildies)
 
   function guildNav() {
     let newGuild = {
@@ -16,21 +17,22 @@ function GuildieSidebar(props) {
       itemId: "/none"
     };
     let gNav=[];
-    (props.guildies)
+    (props.guildies.length)
       ? gNav = props.guildies.map((guildie, index) => {
           return ({
             title: guildie.name,
             itemId: index
           });
         })
-      : gNav = [noGuild, newGuild];
+      : gNav = [noGuild];
       gNav = [...gNav, newGuild];
+      console.log("gnav: ",gNav)
       setGuildNavbar(gNav);
   }
 
   useEffect(() => {
     guildNav()
-  }, []);
+  }, [props.guildies]);
 
   return (
     <div className="w-64 h-screen bg-white flex-initial">
@@ -39,7 +41,6 @@ function GuildieSidebar(props) {
         activeItemId="/management/members"
         onSelect={({ itemId }) => {
           // maybe push to the route
-          console.log(itemId);
           props.handleNav(itemId);
         }}
         items={[
@@ -67,4 +68,4 @@ function GuildieSidebar(props) {
     </div>
   );
 }
-export default GuildieSidebar;
+export default GuildiesSidebar;

@@ -4,7 +4,6 @@ import { API } from '../../utils/API';
 function NewGuildie(props) {
 
     const userData = props.userData;
-    console.log("UserData: ", userData)
     const [newGuildie, setNewGuildie] = useState(userData);
     function handleChange(e) {
       const { name, value } = e.target;
@@ -12,7 +11,6 @@ function NewGuildie(props) {
     }
   
     function handleNewGuildie(e) {
-      console.log(newGuildie)
       e.preventDefault();
       API.createGuildie(newGuildie)
         .then((res) => {

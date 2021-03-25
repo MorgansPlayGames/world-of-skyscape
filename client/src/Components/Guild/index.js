@@ -1,23 +1,30 @@
 import React, { useState, useEffect, Component } from "react";
-import GuildieSidebar from "./GuildieSidebar";
+import GuildieSidebar from "./GuildiesSidebar";
 import NewGuildie from "./NewGuildie";
-import ViewGuildie from "./ViewGuildie";
+import ViewGuildie from "./ViewGuildie/index";
 import GuildMain from "./GuildMain";
 import { API } from "../../utils/API";
 
 function GuildHolderDiv(props) {
   const [state, setState] = useState("");
   const [guildies, setGuildies] = useState([]);
+  const [selectedGuildie, setSelectedGuildie] = useState("");
 
   useEffect(async () => {
     // how do I get username?!
     let user = props.userData;
     let getGuildies = await API.getGuildies(user);
     setGuildies(getGuildies);
+    console.log("guildies: ", guildies)
   }, []);
 
   function handleNav(dir) {
-    setState(dir);
+    if (typeof dir === "number") {
+      setSelectedGuildie(dir);
+      setState("/view");
+    } else {
+      setState(dir);
+    }
   }
 
   return (
@@ -26,11 +33,17 @@ function GuildHolderDiv(props) {
         <GuildieSidebar handleNav={handleNav} guildies={guildies} />
         <div className="flex-1">
           {state === "/new" ? (
-            <NewGuildie userData={props.userData} setUserData={props.setUserData}  />
-          ) : state === "/main" ? (
-            <GuildMain />
+            <NewGuildie
+              userData={props.userData}
+              setUserData={props.setUserData}
+            />
+          ) : state === "/view" ? (
+            <ViewGuildie
+              guildies={guildies}
+              selectedGuildie={selectedGuildie}
+            />
           ) : (
-            <ViewGuildie guildies={guildies} />
+            <GuildMain />
           )}
         </div>
       </div>

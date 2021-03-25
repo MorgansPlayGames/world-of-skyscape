@@ -11,7 +11,6 @@ export default function Navbar(props) {
   });
 
   const hamburger = () => {
-    console.log(state);
     if (state.navMenu === "hidden") {
       setState({
         navMenu: "",
