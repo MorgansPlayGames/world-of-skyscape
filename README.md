@@ -2,9 +2,15 @@
 MMO guild simulator/Resource Management react game
 
 ## Progress
-Back end started with way too much stuff.
+* Back end started with way too much stuff.
+* Have the user with login
+* Routes to create a character
+* Front end to create and view 
+* Create level table for stat distribution
 
-Have the user with login
+### Front End
+* Create statistic tables for characters using functions to calculate base values
+
 
 ## Models started:
 * User
@@ -18,15 +24,14 @@ Have the user with login
 * Recipes
 
 ## Next Todo
-* Routes to create a character
 * Seed beginner abilities, buffs, professions, monsters, and items
-* Front end to create and view characters
+* Give tasks to guildies
+* Create The whole "Map" seed with locations. Continent all the way down to encounters.
 
 ## Future Todo
 * Narrow down backend models and bugfix
 ### Creating the game sim back end
-* Give tasks to guildies
-* Create level table for stat distribution
+
 * Level up guildies
 * Give Guildies abilities
 * Create combat simulation 
@@ -37,7 +42,6 @@ Have the user with login
 
 ### Front End
 * Create drop down menus/models to select choices
-* Create statistic tables for characters using functions to calculate base values
 * Routes to update characters, equipment, mark to sell items, update task
 * create page to view a character's inventory
 * create view item component 
