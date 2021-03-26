@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const citySchema = new Schema({
+const roadSchema = new Schema({
   name: {
     type: String,
     trim: true,
@@ -14,14 +14,20 @@ const citySchema = new Schema({
     default: Date.now,
   },
 
-  zone: 
+  zone:{
+    type: Schema.Types.ObjectId,
+    ref: "Zone",
+  },
+
+  areas: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Zone",
+      ref: "Area",
     },
-
+    
+]
 });
 
-const City = mongoose.model("City", citySchema);
+const Road = mongoose.model("Road", roadSchema);
 
-module.exports = City;
+module.exports = Road;

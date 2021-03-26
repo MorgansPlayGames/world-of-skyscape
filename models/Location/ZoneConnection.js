@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const citySchema = new Schema({
+const zoneConnectionSchema = new Schema({
   name: {
     type: String,
     trim: true,
@@ -14,14 +14,14 @@ const citySchema = new Schema({
     default: Date.now,
   },
 
-  zone: 
+  zones: [
     {
       type: Schema.Types.ObjectId,
       ref: "Zone",
     },
-
+]
 });
 
-const City = mongoose.model("City", citySchema);
+const ZoneConnection = mongoose.model("ZoneConnection", zoneConnectionSchema);
 
-module.exports = City;
+module.exports = ZoneConnection;
