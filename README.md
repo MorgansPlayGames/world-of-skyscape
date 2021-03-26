@@ -22,11 +22,12 @@ MMO guild simulator/Resource Management react game
 * Monsters
 * Profession
 * Recipes
+* (Locations?!)
 
 ## Next Todo
-* Seed beginner abilities, buffs, professions, monsters, and items
+* Seed beginner abilities, buffs, monsters, and items
 * Give tasks to guildies
-* Create The whole "Map" seed with locations. Continent all the way down to encounters.
+* Create The whole "Map" model seed with locations. Continent all the way down to encounters.
 
 ## Future Todo
 * Narrow down backend models and bugfix
