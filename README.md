@@ -7,6 +7,8 @@ MMO guild simulator/Resource Management react game
 * Routes to create a character
 * Front end to create and view 
 * Create level table for stat distribution
+* Created overbloated location models 
+* Created a seeder with ObjectId's for relationships function to reference
 
 ### Front End
 * Create statistic tables for characters using functions to calculate base values
@@ -22,7 +24,7 @@ MMO guild simulator/Resource Management react game
 * Monsters
 * Profession
 * Recipes
-* (Locations?!)
+* Locations
 
 ## Next Todo
 * Seed beginner abilities, buffs, monsters, and items

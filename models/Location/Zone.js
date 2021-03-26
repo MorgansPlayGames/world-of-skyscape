@@ -27,26 +27,6 @@ const zoneSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "RandomWildlife",
   },
-
-  towns: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Town",
-    },
-  ],
-
-  areas: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Area",
-    },
-  ],
-  roads: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Road",
-    },
-  ],
 });
 
 const Zone = mongoose.model("Zone", zoneSchema);
