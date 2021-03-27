@@ -1,14 +1,16 @@
-import AREA from "../../controllers/locations/areaController";
-import CITY from "../../controllers/locations/cityController";
-import CONNECTION from "../../controllers/locations/connectionController";
-import CONTINENT from "../../controllers/locations/continentController";
-import ENCOUNTER from "../../controllers/locations/encounterController";
-import QUEST from "../../controllers/locations/questController";
-import RANDOMWILDLIFE from "../../controllers/locations/randomWildlifeController";
-import RESOURCELIST from "../../controllers/locations/resourceListController";
-import ROAD from "../../controllers/locations/roadController";
-import TOWN from "../../controllers/locations/townController";
-import ZONE from "../../controllers/locations/zoneController";
+const router = require('express').Router();
+
+const AREA = require( "../../controllers/locations/areaController");
+const CITY = require( "../../controllers/locations/cityController");
+const CONNECTION = require( "../../controllers/locations/connectionController");
+const CONTINENT = require( "../../controllers/locations/continentController");
+const ENCOUNTER = require( "../../controllers/locations/encounterController");
+const QUEST = require( "../../controllers/locations/questController");
+const RANDOMWILDLIFE = require( "../../controllers/locations/randomWildlifeController");
+const RESOURCELIST = require( "../../controllers/locations/resourceListController");
+const ROAD = require( "../../controllers/locations/roadController");
+const TOWN = require( "../../controllers/locations/townController");
+const ZONE = require( "../../controllers/locations/zoneController");
 
 router.post("/area/create", AREA.addArea);
 router.post("/city/create", CITY.addCity);

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const ObjectID = require("mongodb").ObjectID;
 
 const guildieSchema = new Schema({
   userId: {
@@ -19,7 +20,11 @@ const guildieSchema = new Schema({
     default: "Human",
   },
 
-  location: {},
+  location: {
+    type: Schema.Types.ObjectId,
+    ref: "Connection",
+    default: ObjectID('605ec9ee753f6fa7d4b4ea6e'),
+  },
 
   creationDate: {
     type: Date,

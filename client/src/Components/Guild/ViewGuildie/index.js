@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GuildieSidebar from "./GuildieSidebar";
 import GuildieStats from "./GuildieStats"
 import GuildieTasks from "./GuildieTasks"
+import { API } from "../../../utils/API";
 
 function ViewGuildie(props) {
   const [guildieNav, setGuildieNav] = useState([]);
+  const [guildieOptions, setGuildieOptions]=useState([])
   let guildies = props.guildies;
   let selectedGuildie = guildies[props.selectedGuildie];
   console.log(selectedGuildie);
@@ -12,6 +14,13 @@ function ViewGuildie(props) {
   function handleGuildieNav(dir) {
     setGuildieNav(dir);
   }
+
+  useEffect(async () => {
+    let selectedGuildie = guildies[props.selectedGuildie];
+    let getOptions = await API.getOptions(selectedGuildie);
+    setGuildieOptions(getOptions);
+  }, [selectedGuildie]);
+
 
   return (
     <div className="flex">

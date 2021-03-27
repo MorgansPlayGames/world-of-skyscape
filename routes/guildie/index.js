@@ -8,4 +8,6 @@ router.post('/remove', GUILDIE.removeGuildie);
 
 router.post('/getall', GUILDIE.getAllGuildies);
 
+router.post('/getoptions', GUILDIE.getOptions);
+
 module.exports = router;

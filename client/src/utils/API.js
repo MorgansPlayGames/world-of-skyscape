@@ -109,6 +109,19 @@ async function getGuildies(user) {
     });
 }
 
+async function getOptions(guildie) {
+  return axios({
+    method: "post",
+    url: "/guildie/getoptions",
+    data: guildie,
+  })
+  .then((res)=> {
+    return res.data
+  })
+  .catch((err) => {return err})
+  
+}
+
 export const API = {
   setDefaults,
   setAuth,
@@ -120,4 +133,5 @@ export const API = {
   getUser,
   createGuildie,
   getGuildies,
+  getOptions,
 };

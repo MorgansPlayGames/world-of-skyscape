@@ -53,10 +53,29 @@ module.exports = {
   getAllGuildies: async function (req, res) {
     try {
       let userId = req.body._id;
-      const guildies = await db.Guildie.find({ userId: ObjectID(userId) });
+      const guildies = await db.Guildie.find({
+        userId: ObjectID(userId),
+      }).populate("location");
       res.status(200).json(guildies);
     } catch (err) {
       res.status(500).json(err);
     }
   },
+  getOptions: async function (req, res) {
+    try {
+      console.log("trying to get options")
+      let connectionId = req.body.location._id;
+      console.log(connectionId)
+      const options = await db.Road.find({
+        $or: [
+        {connectionBegin: ObjectID(connectionId)},
+        {connectionEnd:ObjectID(connectionId)}
+      ]
+      })
+      console.log(options)
+      res.status(200).json(options)
+    } catch (err) {
+      res.status(500).json(err)
+    }
+  }
 };

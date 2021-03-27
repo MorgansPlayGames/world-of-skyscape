@@ -29,13 +29,17 @@ seeder.connect(config.database, function () {
       "DropTable",
     ],
     function () {
-      const seedList = [];
+      const seedList = [
+        { id: ObjectID('605ec9ee753f6fa7d4b4ea6c'), name: 'CAnvilmar' },
+        { id: ObjectID('605ec9ee753f6fa7d4b4ea6e'), name: 'CNorthshire' },
+        { id: ObjectID('605ec9ee753f6fa7d4b4ea70'), name: 'CDeathknell' }
+    ];
       function getSeed(obj) {
         let object = seedList.filter((x) => x.name === obj);
         if (!object[0]) {
           let newId = { id: ObjectID(), name: obj };
           seedList.push(newId);
-          console.log("newId for ", obj);
+          console.log("newId for ",obj," ",newId);
           return ObjectID(newId.id);
         } else {
           return ObjectID(object[0].id);
@@ -85,7 +89,7 @@ seeder.connect(config.database, function () {
         },
         {
           model: "Road",
-          document: [
+          documents: [
             {
               name: "R_DM_1",
               _id: getSeed("R_DM_1"),
