@@ -9,6 +9,12 @@ const citySchema = new Schema({
     required: "You need to have a unique name",
   },
 
+  connection: {
+    type: Schema.Types.ObjectId,
+    ref: "Connection",
+    required: "Need a way to connect this to other things"
+  },
+
   creationDate: {
     type: Date,
     default: Date.now,

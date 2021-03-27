@@ -2,16 +2,26 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
+    name:{
+        type: String,
+        required: true,
+    },
     minLevel:{
         type: Number,
         default: 0,
     },
-    rarity:{},
+    rarity:{
+        type: Number,
+        default:1
+    },
     goldWorth:{
         type: Number,
         default: 0,
     },
-    type:{},
+    type:{
+        type: String,
+        default:"Trade Supplies"
+    },
     onUse:{
         type: {
             type: Schema.Types.ObjectId,

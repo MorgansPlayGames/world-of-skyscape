@@ -14,18 +14,22 @@ const roadSchema = new Schema({
     default: Date.now,
   },
 
-  zone:{
-    type: Schema.Types.ObjectId,
-    ref: "Zone",
+  ticDistance:{
+    type: Number,
   },
 
-  areas: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Area",
-    },
+  connectionBegin: {
+    type: Schema.Types.ObjectId,
+    ref: "Connection",
+    required: "Need a way to connect this to other things"
+  },
+
+  connectionEnd: {
+    type: Schema.Types.ObjectId,
+    ref: "Connection",
+    required: "Need a way to connect this to other things"
+  },
     
-]
 });
 
 const Road = mongoose.model("Road", roadSchema);

@@ -8,7 +8,7 @@ const continentSchema = new Schema({
     unique: true,
     required: "You need to have a unique name",
   },
-  
+
   creationDate: {
     type: Date,
     default: Date.now,

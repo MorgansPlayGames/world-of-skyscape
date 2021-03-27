@@ -25,3 +25,6 @@ Monsters have one or more Encounters.
 Quests have a start town or ciry
 Quests have an area with one or more encounters and goals attached
 Quests have a finish town or city.
+
+
+Roads have a Town and either a zone connection, another town/city connection. Areas have attached roads and a number indicating how far away it is from the town.

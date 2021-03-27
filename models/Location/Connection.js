@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const zoneConnectionSchema = new Schema({
+const connectionSchema = new Schema({
   name: {
     type: String,
     trim: true,
@@ -13,15 +13,8 @@ const zoneConnectionSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-
-  zones: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Zone",
-    },
-]
 });
 
-const ZoneConnection = mongoose.model("ZoneConnection", zoneConnectionSchema);
+const Connection = mongoose.model("Connection", connectionSchema);
 
-module.exports = ZoneConnection;
+module.exports = Connection;

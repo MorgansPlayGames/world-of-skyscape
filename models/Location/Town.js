@@ -14,6 +14,12 @@ const townSchema = new Schema({
     default: Date.now,
   },
 
+  connection: {
+    type: Schema.Types.ObjectId,
+    ref: "Connection",
+    required: "Need a way to connect this to other things"
+  },
+
   zone: {
       type: Schema.Types.ObjectId,
       ref: "Zone",

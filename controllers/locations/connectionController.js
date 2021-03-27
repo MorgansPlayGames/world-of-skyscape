@@ -2,10 +2,10 @@ const db = require("../../models");
 const ObjectID = require("mongodb").ObjectID;
 
 module.exports = {
-    addZoneConnection: async (req, res) => {
-        let zoneConnectionBody= req.body;
-        const newZoneConnection = new db.ZoneConnection(zoneConnectionBody)
-        newZoneConnection.save()
+    addConnection: async (req, res) => {
+        let connectionBody= req.body;
+        const newConnection = new db.Connection(connectionBody)
+        newConnection.save()
             .then(saved => {
                 if(!saved){
                     res.status(400).json(false)
