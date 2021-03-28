@@ -14,12 +14,14 @@ const encounterSchema = new Schema({
     default: Date.now,
   },
 
-  area: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Area",
-    },
-]
+  encounterType: {
+    type: String
+  },
+
+  monster: {
+    type: Schema.Types.ObjectId,
+    ref: "Monster",
+  },
 });
 
 const Encounter = mongoose.model("Encounter", encounterSchema);

@@ -71,7 +71,7 @@ module.exports = {
         {connectionBegin: ObjectID(connectionId)},
         {connectionEnd:ObjectID(connectionId)}
       ]
-      })
+      }).populate('connectionBegin').populate('connectionEnd')
       console.log(options)
       res.status(200).json(options)
     } catch (err) {

@@ -12,12 +12,15 @@ const areaSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  zone: 
+  encounters: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Zone",
+      encounter: {
+        type: Schema.Types.ObjectId,
+        ref: "Encounter",
+      },
+      chance: {type: Number},
     },
-
+  ],
 });
 
 const Area = mongoose.model("Area", areaSchema);

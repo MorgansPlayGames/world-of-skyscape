@@ -24,6 +24,16 @@ function GuildieSidebar(props) {
           {
             title: "Tasks",
             itemId: "/tasks",
+            subNav: [
+              {
+                title: "Travel",
+                itemId: "/tasks/travel"
+              },
+              {
+                title: "Find Mobs",
+                itemId: "/tasks/grind",
+              },
+            ],
           },
           {
             title: "Another Item",

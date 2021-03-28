@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import GuildieSidebar from "./GuildieSidebar";
 import GuildieStats from "./GuildieStats"
 import GuildieTasks from "./GuildieTasks"
+import GuildieTravel from "./GuildieTravel"
 import { API } from "../../../utils/API";
 
 function ViewGuildie(props) {
@@ -29,7 +30,9 @@ function ViewGuildie(props) {
         {guildieNav==="/stats" ?
             <GuildieStats selectedGuildie={selectedGuildie} />
             : guildieNav==="/tasks" ?
-            <GuildieTasks selectedGuildie={selectedGuildie} />
+            <GuildieTasks selectedGuildie={selectedGuildie} guildieOptions={guildieOptions} />
+            :guildieNav==="/tasks/travel" ?
+            <GuildieTravel selectedGuildie={selectedGuildie} guildieOptions={guildieOptions} />
             :
             <div>Please Select a menu</div>
       }

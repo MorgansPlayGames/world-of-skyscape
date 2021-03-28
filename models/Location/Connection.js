@@ -8,6 +8,11 @@ const connectionSchema = new Schema({
     unique: true,
     required: "You need to have a unique name",
   },
+  areas:[{
+    type: Schema.Types.ObjectId,
+    ref: "Area",
+  
+  }],
 
   creationDate: {
     type: Date,
