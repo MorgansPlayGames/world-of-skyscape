@@ -109,10 +109,23 @@ async function getGuildies(user) {
     });
 }
 
-async function getOptions(guildie) {
+async function getTravelOptions(guildie) {
   return axios({
     method: "post",
-    url: "/guildie/getoptions",
+    url: "/guildie/gettraveloptions",
+    data: guildie,
+  })
+  .then((res)=> {
+    return res.data
+  })
+  .catch((err) => {return err})
+  
+}
+
+async function getGrindOptions(guildie) {
+  return axios({
+    method: "post",
+    url: "/guildie/getgrindoptions",
     data: guildie,
   })
   .then((res)=> {
@@ -133,5 +146,6 @@ export const API = {
   getUser,
   createGuildie,
   getGuildies,
-  getOptions,
+  getTravelOptions,
+  getGrindOptions,
 };

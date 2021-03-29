@@ -27,6 +27,7 @@ MMO guild simulator/Resource Management react game
 * Locations
 
 ## Next Todo
+* pass available tasks to guildie
 * Seed beginner abilities, buffs, monsters, and items
 * Give tasks to guildies
 * Create The whole "Map" model seed with locations. Continent all the way down to encounters.

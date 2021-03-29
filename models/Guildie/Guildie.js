@@ -31,6 +31,10 @@ const guildieSchema = new Schema({
     default: Date.now,
   },
 
+  task: {
+    type: Schema.Types.ObjectId,
+    ref: "Task",
+  },
   experience: {
     type: Number,
     default: 0,

@@ -3,14 +3,16 @@ import GuildieSidebar from "./GuildieSidebar";
 import GuildieStats from "./GuildieStats"
 import GuildieTasks from "./GuildieTasks"
 import GuildieTravel from "./GuildieTravel"
+import GuildieGrind from "./GuildieGrind"
 import { API } from "../../../utils/API";
+
 
 function ViewGuildie(props) {
   const [guildieNav, setGuildieNav] = useState([]);
-  const [guildieOptions, setGuildieOptions]=useState([])
+  const [travelOptions, setTravelOptions]=useState([])
+  const [grindOptions, setGrindOptions] = useState([])
   let guildies = props.guildies;
   let selectedGuildie = guildies[props.selectedGuildie];
-  console.log(selectedGuildie);
 
   function handleGuildieNav(dir) {
     setGuildieNav(dir);
@@ -18,8 +20,10 @@ function ViewGuildie(props) {
 
   useEffect(async () => {
     let selectedGuildie = guildies[props.selectedGuildie];
-    let getOptions = await API.getOptions(selectedGuildie);
-    setGuildieOptions(getOptions);
+    let getTravelOptions = await API.getTravelOptions(selectedGuildie);
+    let getGrindOptions = await API.getGrindOptions(selectedGuildie)
+    setGrindOptions(getGrindOptions)
+    setTravelOptions(getTravelOptions);
   }, [selectedGuildie]);
 
 
@@ -30,9 +34,11 @@ function ViewGuildie(props) {
         {guildieNav==="/stats" ?
             <GuildieStats selectedGuildie={selectedGuildie} />
             : guildieNav==="/tasks" ?
-            <GuildieTasks selectedGuildie={selectedGuildie} guildieOptions={guildieOptions} />
+            <GuildieTasks selectedGuildie={selectedGuildie} travelOptions={travelOptions} />
             :guildieNav==="/tasks/travel" ?
-            <GuildieTravel selectedGuildie={selectedGuildie} guildieOptions={guildieOptions} />
+            <GuildieTravel selectedGuildie={selectedGuildie} travelOptions={travelOptions} />
+            :guildieNav==="/tasks/grind" ?
+            <GuildieGrind selectedGuildie={selectedGuildie} grindOptions={grindOptions} />
             :
             <div>Please Select a menu</div>
       }

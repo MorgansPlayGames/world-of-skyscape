@@ -15,7 +15,6 @@ function GuildHolderDiv(props) {
     let user = props.userData;
     let getGuildies = await API.getGuildies(user);
     setGuildies(getGuildies);
-    console.log("guildies: ", guildies)
   }, []);
 
   function handleNav(dir) {

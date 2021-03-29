@@ -61,18 +61,26 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  getOptions: async function (req, res) {
+  getTravelOptions: async function (req, res) {
     try {
-      console.log("trying to get options")
       let connectionId = req.body.location._id;
-      console.log(connectionId)
       const options = await db.Road.find({
         $or: [
         {connectionBegin: ObjectID(connectionId)},
         {connectionEnd:ObjectID(connectionId)}
       ]
       }).populate('connectionBegin').populate('connectionEnd')
-      console.log(options)
+      res.status(200).json(options)
+    } catch (err) {
+      res.status(500).json(err)
+    }
+  },
+  getGrindOptions: async function (req, res) {
+    try {
+      let connectionId = req.body.location._id;
+      const options = await db.Connection.find({
+        _id:ObjectID(connectionId)
+      }).populate('areas')
       res.status(200).json(options)
     } catch (err) {
       res.status(500).json(err)

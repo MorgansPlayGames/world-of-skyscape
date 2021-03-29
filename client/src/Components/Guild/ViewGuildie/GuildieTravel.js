@@ -1,21 +1,21 @@
 import React from "react";
 import GuildieStatCalc from "./GuildieStatCalc";
+import SetButtonTask from "./Button/SetTaskButton"
 
 function GuildieTravel(props) {
-  let guildieOptions = props.guildieOptions;
+  let travelOptions = props.travelOptions;
   let selectedGuildie = props.selectedGuildie;
-  console.log(props.guildieOptions);
   return (
     <div>
       Guildie Travel Tasks!
-      {guildieOptions.length ? (
-        guildieOptions.map((option, index) => {
+      {travelOptions.length ? (
+        travelOptions.map((option, index) => {
+          let connection;
+          option.connectionBegin.name === selectedGuildie.location.name
+                ? connection = option.connectionEnd
+                : connection = option.connectionBegin
           return (
-            <div key={index}>
-              {option.connectionBegin.name === selectedGuildie.location.name
-                ? option.connectionEnd.name
-                : option.connectionBegin.name}
-            </div>
+            <SetButtonTask option={connection} taskType="goTo" guildie={selectedGuildie} key={index} />
           );
         })
       ) : (

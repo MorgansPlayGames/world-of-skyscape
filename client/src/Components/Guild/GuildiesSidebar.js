@@ -5,7 +5,6 @@ import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
 
 function GuildiesSidebar(props) {
   const [guildNavbar, setGuildNavbar] = useState([])
-  console.log("gprops:", props.guildies)
 
   function guildNav() {
     let newGuild = {
@@ -26,7 +25,6 @@ function GuildiesSidebar(props) {
         })
       : gNav = [noGuild];
       gNav = [...gNav, newGuild];
-      console.log("gnav: ",gNav)
       setGuildNavbar(gNav);
   }
 
