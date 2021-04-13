@@ -6,6 +6,8 @@ const config = require('./config/database');
 const { User } = require('./models');
 const app = express();
 const PORT = process.env.PORT || 3001;
+const { tick } = require("./controllers/tickController")
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -21,6 +23,9 @@ app.use(routes);
 
 mongoose.connect(config.database);
 
+const ticker = setInterval(tick, 10000)
+
 app.listen(PORT, function () {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+    
 });

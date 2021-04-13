@@ -34,6 +34,7 @@ seeder.connect(config.database, function () {
         { id: ObjectID("605ec9ee753f6fa7d4b4ea6c"), name: "C_Anvilmar" },
         { id: ObjectID("605ec9ee753f6fa7d4b4ea6e"), name: "C_Northshire" },
         { id: ObjectID("605ec9ee753f6fa7d4b4ea70"), name: "C_Deathknell" },
+        { id: ObjectID("6062bab2000d7e766c184558"), name: "T_Idle" }
       ];
       function getSeed(obj) {
         let object = seedList.filter((x) => x.name === obj);

@@ -24,4 +24,5 @@ module.exports = {
     MonsterType: require('./Monster/MonsterType'),
     DropTable: require('./Item/DropTable'),
     UserAuditLog: require('./UserAuditLog'),
+    Combat: require('./Combat'),
 };

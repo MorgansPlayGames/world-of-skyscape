@@ -35,6 +35,7 @@ const guildieSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Task",
   },
+  taskTime: { type: Number },
   experience: {
     type: Number,
     default: 0,

@@ -10,6 +10,7 @@ const taskSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Connection",
     },
+
     skinning:{
         type: Schema.Types.ObjectId,
         ref: "RandomWildlife",
@@ -22,6 +23,7 @@ const taskSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Area",
     }
+
 
 });
 
